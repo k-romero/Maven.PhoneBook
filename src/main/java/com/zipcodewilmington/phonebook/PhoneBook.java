@@ -1,5 +1,7 @@
 package com.zipcodewilmington.phonebook;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,14 +9,18 @@ import java.util.Map;
  * Created by leon on 1/23/18.
  */
 public class PhoneBook {
-    public PhoneBook(Map<String, List<String>> map) {
+    HashMap<String, List<String>> phoneMap;
+
+    public PhoneBook(Map<String, List<String>> phoneMap) {
+        this.phoneMap = new HashMap<>();
     }
 
     public PhoneBook() {
-        this(null);
+        this.phoneMap = new HashMap<>();
     }
 
     public void add(String name, String phoneNumber) {
+        phoneMap.put(name, Collections.singletonList(phoneNumber));
     }
 
     public void addAll(String name, String... phoneNumbers) {
@@ -40,6 +46,6 @@ public class PhoneBook {
     }
 
     public Map<String, List<String>> getMap() {
-        return null;
+        return phoneMap;
     }
 }
