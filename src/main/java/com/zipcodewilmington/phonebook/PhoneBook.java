@@ -33,18 +33,26 @@ public class PhoneBook {
     }
 
     public void remove(String name) {
-        this.phoneMap.remove(name);
+        phoneMap.remove(name);
     }
 
     public Boolean hasEntry(String name) {
-        return null;
+        if(phoneNumbers.contains(name)){
+            return phoneNumbers.contains(name);
+        }
+        return phoneMap.containsKey(name);
     }
 
     public List<String> lookup(String name) {
-        return null;
+        return phoneMap.get(name);
     }
 
     public String reverseLookup(String phoneNumber)  {
+        for (String key : phoneMap.keySet()) {
+            if(phoneMap.get(key).contains(phoneNumber)){
+                return key;
+            }
+        }
         return null;
     }
 
